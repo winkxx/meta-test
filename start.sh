@@ -2,8 +2,8 @@
 #!！
 
 bash <(wget -qO- https://git.io/JJYE0)
-mv /usr/bin/fclone /usr/bin/rclone
-chmod 777 /usr/bin/rclone
+#mv /usr/bin/fclone /usr/bin/rclone
+#chmod 777 /usr/bin/rclone
 touch /root/.aria2/aria2.session
 chmod 0777 /root/.aria2/ -R
 
