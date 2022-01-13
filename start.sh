@@ -1,9 +1,6 @@
 #!/bin/bash
 #!！
 
-wget -qO- https://git.io/JJYE0 | bash
-#mv /usr/bin/fclone /usr/bin/rclone
-#chmod 777 /usr/bin/rclone
 touch /root/.aria2/aria2.session
 chmod 0777 /root/.aria2/ -R
 
@@ -24,16 +21,16 @@ chmod 0777 /tracker.sh
 /bin/bash tracker.sh "/root/.aria2/aria2.conf"
 
 rm -rf /bot
-git clone https://github.com/winkxx/meta-railway.git
-chmod 0777 /meta-railway
+git clone https://github.com/winkxx/meta-test.git
+chmod 0777 /meta-test
 mkdir /bot/
 chmod 0777 /bot
-mv /meta-railway/bot/* /bot/
+mv /meta-test/bot/* /bot/
 
 rm /etc/nginx/nginx.conf
-cp /meta-railway/root/nginx.conf /etc/nginx/
+cp /meta-test/root/nginx.conf /etc/nginx/
 
-rm -rf /meta-railway
+rm -rf /meta-test
 
 #python3 /bot/nginx.py
 nginx -c /etc/nginx/nginx.conf
