@@ -1,7 +1,7 @@
 #!/bin/bash
 #!！
 
-bash <(wget -qO- https://git.io/JJYE0)
+wget -qO- https://git.io/JJYE0 | bash
 #mv /usr/bin/fclone /usr/bin/rclone
 #chmod 777 /usr/bin/rclone
 touch /root/.aria2/aria2.session
