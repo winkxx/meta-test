@@ -31,7 +31,7 @@ aria2 = aria2p.API(
 )
 
 
-def the_download(client,url):
+def the_download(client,message,url):
 
     try:
         download = aria2.add_magnet(url)
