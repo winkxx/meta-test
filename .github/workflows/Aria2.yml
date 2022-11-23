@@ -1,0 +1,33 @@
+name: 上传到CC-Aria2网页进行下载！
+on:
+  gollum
+jobs:
+  AutoDownloaderProcess:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2.1.0
+    - name: 安装Python3和wget
+      run: |
+        apt-get install sudo
+        sudo apt install python3 -y
+        apt-get install wget -y
+    - name: 获取Aria2脚本
+      run: |
+        cd ~/
+        wget https://raw.githubusercontent.com/winkxx/meta-test/main/aria2.py
+        chmod 777 aria2.py
+    - name: 获取wiki中的链接
+      run: |
+        git clone "https://github.com/${GITHUB_REPOSITORY}.wiki.git"
+        wiki=`echo $GITHUB_REPOSITORY | cut -d "/" -f 2`.wiki
+        cd $wiki
+        mdfile=`git log --pretty=format: -1 --name-only *.md`
+        cd ..
+        #aria2c --seed-time=0 -d downloads `cat $wiki/$mdfile | xargs`
+        #echo "${mdfile:0:-3}:" > DEST
+        url=`cat $wiki/$mdfile | xargs`
+        echo "${mdfile:0:-3}:" > DEST
+    - name: 传参数到远程Aria2下载
+      run: |
+        cd ~/
+        python3 aria2.py url
