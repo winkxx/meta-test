@@ -7,7 +7,7 @@ print(url)
 Aria2_host="ws://173.82.45.50"
 Aria2_port="6800"
 Aria2_secret="5b81c71f3ec03df97928"
-message = str(Aria2_secret)
+#message = str(Aria2_secret)
 
 Telegram_bot_api="1687970568:AAE4nCGaGnFL5NGjm1Zr9muHG3HgtMHmkp0"
 Telegram_user_id="1367147811"
@@ -31,7 +31,7 @@ aria2 = aria2p.API(
 )
 
 
-def the_download(client,message,url):
+def the_download(url):
 
     try:
         download = aria2.add_magnet(url)
@@ -39,9 +39,9 @@ def the_download(client,message,url):
         print(e)
         if (str(e).endswith("No URI to download.")):
             print("No link provided!")
-            client.send_message(chat_id=message.chat.id,text="No link provided!",parse_mode='Markdown')
+            #client.send_message(chat_id=message.chat.id,text="No link provided!",parse_mode='Markdown')
             return None
     prevmessagemag = None
-    info=client.send_message(chat_id=message.chat.id,text="添加任务",parse_mode='markdown')
+    #info=client.send_message(chat_id=message.chat.id,text="添加任务",parse_mode='markdown')
 
-the_download(client, message,url)
+the_download(url)
