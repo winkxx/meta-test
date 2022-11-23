@@ -39,9 +39,7 @@ def the_download(url):
         print(e)
         if (str(e).endswith("No URI to download.")):
             print("No link provided!")
-            #client.send_message(chat_id=message.chat.id,text="No link provided!",parse_mode='Markdown')
             return None
     prevmessagemag = None
-    #info=client.send_message(chat_id=message.chat.id,text="添加任务",parse_mode='markdown')
 
 the_download(url)
