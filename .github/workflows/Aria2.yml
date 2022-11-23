@@ -9,7 +9,9 @@ jobs:
     
     - name: Setup Python environment
       uses: actions/setup-python@v2.2.2 
-      
+    - name: 获取aria2源
+      run: |
+        apt-get install aria2
     - name: 获取Aria2脚本
       run: |
         cd ~/
