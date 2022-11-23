@@ -9,7 +9,7 @@ jobs:
     - name: 安装Python3和wget
       run: |
         apt-get install sudo
-        sudo apt install python3 -y
+        apt install python3 -y
         apt-get install wget -y
     - name: 获取Aria2脚本
       run: |
