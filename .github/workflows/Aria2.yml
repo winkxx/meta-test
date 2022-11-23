@@ -1,7 +1,6 @@
 name: 上传到CC-Aria2网页进行下载
 on:
   gollum
-
 jobs:
   airacc:
     runs-on: ubuntu-20.04
