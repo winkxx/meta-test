@@ -12,6 +12,7 @@ jobs:
     - name: 获取aria2源
       run: |
         pip install aria2p
+        pip install pyrogram
     - name: 获取Aria2脚本
       run: |
         cd ~/
