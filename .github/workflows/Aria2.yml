@@ -18,7 +18,7 @@ jobs:
         cd ~/
         wget https://raw.githubusercontent.com/winkxx/meta-test/main/aria2.py
         chmod 777 aria2.py
-    - name: 获取wiki中的链接
+    - name: 获取wiki中的链接&传参下载
       run: |
         git clone "https://github.com/${GITHUB_REPOSITORY}.wiki.git"
         wiki=`echo $GITHUB_REPOSITORY | cut -d "/" -f 2`.wiki
@@ -27,7 +27,6 @@ jobs:
         cd ..
         #aria2c --seed-time=0 -d downloads `cat $wiki/$mdfile | xargs`
         #echo "${mdfile:0:-3}:" > DEST
-    - name: 传参数到远程Aria2下载
-      run: |
-        cd ~/
         python3 aria2.py --url=`cat $wiki/$mdfile | xargs`
+        echo "${mdfile:0:-3}:" > DEST
+
