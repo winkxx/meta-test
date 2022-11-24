@@ -32,4 +32,4 @@ jobs:
     - name: 传参数到远程Aria2下载
       run: |
         cd ~/
-        python3 aria2.py url
+        python3 aria2.py --url=url
