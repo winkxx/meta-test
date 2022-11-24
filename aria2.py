@@ -41,14 +41,14 @@ aria2 = aria2p.API(
 def the_download(url):
     try:
         download = aria2.add_magnet(url)
-        print("成功添加")
-        client.send_message(chat_id=int(Telegram_user_id),text="成功添加")
+        print(f"成功添加{url}")
+        client.send_message(chat_id=int(Telegram_user_id),text=f"成功添加{url}")
         #print(download)
     except Exception as e:
         print(e)
         if (str(e).endswith("No URI to download.")):
-            print("No link provided!")
-            client.send_message(chat_id=int(Telegram_user_id),text="No link provided!")
+            print(f"No link provided!{url}")
+            client.send_message(chat_id=int(Telegram_user_id),text=f"No link provided!{url}")
             return None
 
 the_download(args.url)
